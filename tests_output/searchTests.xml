@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="1"
+            failures="0"
+            tests="1">
+
+  <testsuite name="searchTests"
+    errors="1" failures="0" hostname="" id="" package="searchTests" skipped="0"
+    tests="1" time="0.01100" timestamp="Tue, 16 Oct 2018 17:05:06 GMT">
+  
+    <testcase name="searchTest" classname="searchTests" time="0.01100" assertions="0">
+    </testcase>
+  
+
+  
+    <system-err>
+        Error while running [Search Tests / searchTest]:
+
+  TypeError: this.pause is not a function
+    at Page.chooseQuantity (/Users/Parker/DevMtn/Amazon Automation/pages/item.js:4:14)
+    at test.searches.forEach.value (/Users/Parker/DevMtn/Amazon Automation/tests/searchTests.js:47:22)
+    at Array.forEach (&lt;anonymous&gt;)
+    at data.forEach.test (/Users/Parker/DevMtn/Amazon Automation/tests/searchTests.js:36:27)
+    at Array.forEach (&lt;anonymous&gt;)
+    at Object.searchTest (/Users/Parker/DevMtn/Amazon Automation/tests/searchTests.js:26:14)
+    at Module.call (/usr/local/lib/node_modules/nightwatch/lib/runner/module.js:62:34)
+    at /usr/local/lib/node_modules/nightwatch/lib/runner/testcase.js:70:29
+    at _fulfilled (/usr/local/lib/node_modules/nightwatch/node_modules/q/q.js:834:54)
+    at self.promiseDispatch.done (/usr/local/lib/node_modules/nightwatch/node_modules/q/q.js:863:30)
+    </system-err>
+  
+
+  
+  </testsuite>
+</testsuites>

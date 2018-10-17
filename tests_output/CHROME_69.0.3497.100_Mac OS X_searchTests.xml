@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="1"
+            tests="1">
+
+  <testsuite name="searchTests"
+    errors="0" failures="1" hostname="" id="" package="searchTests" skipped="0"
+    tests="1" time="66.63" timestamp="Tue, 16 Oct 2018 19:43:25 GMT">
+  
+    <testcase name="searchTest" classname="searchTests" time="66.63" assertions="9">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+      <failure message="Timed out while waiting for element &lt;span[class = &#34;a-size-small a-text-bold&#34;]&gt; to be present for 5000 milliseconds.">    at Page.isBuyable (/Users/Parker/DevMtn/Amazon Automation/pages/item.js:13:18)
+    at F.&lt;anonymous&gt; (/Users/Parker/DevMtn/Amazon Automation/tests/searchTests.js:49:38)
+    at _combinedTickCallback (internal/process/next_tick.js:131:7)
+    at process._tickCallback (internal/process/next_tick.js:180:9)</failure>
+
+    
+    </testcase>
+  
+
+  
+
+  
+  </testsuite>
+</testsuites>
