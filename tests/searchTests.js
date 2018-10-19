@@ -46,12 +46,8 @@ module.exports = {
 
                 browser.perform(function (done)
                 {
-                    console.log(item.isBuyable())
-                    done()
-                })
-                browser.perform(function (done)
-                {
-                    if (item.isBuyable())
+                    let bool = item.isBuyable()
+                    if (bool)
                     {
                         item.chooseQuantity(value.quantity)
                         item.addToCart()
