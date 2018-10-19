@@ -5,9 +5,9 @@
 
   <testsuite name="searchTests"
     errors="4" failures="0" hostname="" id="" package="searchTests" skipped="0"
-    tests="1" time="32.54" timestamp="Fri, 19 Oct 2018 02:34:29 GMT">
+    tests="1" time="16.25" timestamp="Fri, 19 Oct 2018 02:48:54 GMT">
   
-    <testcase name="searchTest" classname="searchTests" time="32.54" assertions="4">
+    <testcase name="searchTest" classname="searchTests" time="16.25" assertions="4">
 
     
 
@@ -37,13 +37,13 @@ ERROR: Unable to locate element: &#34;#quantity option[value = &#34;2&#34;]&#34;
     at process._tickCallback (internal/process/next_tick.js:180:9)
 ERROR: Unable to locate element: &#34;#add-to-cart-button&#34; using: css selector
     at Page.click (/usr/local/lib/node_modules/nightwatch/lib/page-object/command-wrapper.js:117:25)
-    at Page.addToCart (/Users/Parker/DevMtn/Amazon Automation/pages/item.js:35:14)
+    at Page.addToCart (/Users/Parker/DevMtn/Amazon Automation/pages/item.js:34:14)
     at F.&lt;anonymous&gt; (/Users/Parker/DevMtn/Amazon Automation/tests/searchTests.js:53:30)
     at doneCallback (/usr/local/lib/node_modules/nightwatch/lib/api/client-commands/perform.js:72:16)
     at _combinedTickCallback (internal/process/next_tick.js:131:7)
     at process._tickCallback (internal/process/next_tick.js:180:9)
 Error while running element command: Cannot read property &#39;toLocaleLowerCase&#39; of undefined
-    at Page.getName (/Users/Parker/DevMtn/Amazon Automation/pages/item.js:39:18)
+    at Page.getName (/Users/Parker/DevMtn/Amazon Automation/pages/item.js:38:18)
     at F.&lt;anonymous&gt; (/Users/Parker/DevMtn/Amazon Automation/tests/searchTests.js:55:44)
     at doneCallback (/usr/local/lib/node_modules/nightwatch/lib/api/client-commands/perform.js:72:16)
     at _combinedTickCallback (internal/process/next_tick.js:131:7)

@@ -8,10 +8,10 @@ var commands = {
     },
     isBuyable: function ()
     {
-        let bool = true
+        var bool = true
 
         this.api.waitForElementVisible('span[class = "a-size-small a-text-bold"]', 5000, true)
-        this.api.pause(10000)
+        //this.api.pause(10000)
 
         this.api.elements('css selector', 'span[class = "a-size-small a-text-bold"]', result =>
         {
@@ -22,13 +22,12 @@ var commands = {
                 if (element.value == "Exclusively for Prime members")
                 {
                     console.log("is not buyable")
-                    bool = false
+                    return false
                 }
             })
         })
-
-        console.log(bool)
-        return bool
+        console.log(true)
+        return true
     },
     addToCart: function ()
     {
