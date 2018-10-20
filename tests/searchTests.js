@@ -43,16 +43,30 @@ module.exports = {
                 search
                     .chooseItem(value.itemPicked)
                 item.waitForElementVisible('@itemName', 5000)
-
+                let bool = false
                 browser.perform(function (done)
                 {
-                    let bool = item.isBuyable()
+                    console.log(`Checking on ${value.searchTerm}`)
+                    item.isBuyable(function (result)
+                    {
+                        console.log(result)
+                        bool = result
+                        done()
+                    })
+                })
+                browser.perform(function (done)
+                {
+                    console.log(`Bool is ${bool}`)
+                    let itemName = item.getName()
                     if (bool)
                     {
-                        item.chooseQuantity(value.quantity)
+                        item.chooseQuantity(value.quantity, amount =>
+                        {
+                            items.addItem(itemName, amount)
+                        })
+
                         item.addToCart()
 
-                        items.addItem(item.getName(), value.quantity)
                     }
                     done()
                 })
@@ -60,8 +74,12 @@ module.exports = {
 
             cart.navigate()
             cart.waitForElementPresent('@firstItem', 5000)
-            cart.checkItems(items)
-            //browser.pause(10000)
+            browser.perform(done =>
+            {
+                cart.checkItems(items) //this is what doesn't seem to be running
+                done()
+            })
+            browser.pause(10000)
         });
 
     },

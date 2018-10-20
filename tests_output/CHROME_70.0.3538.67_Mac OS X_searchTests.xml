@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="1"
+            tests="1">
+
+  <testsuite name="searchTests"
+    errors="0" failures="1" hostname="" id="" package="searchTests" skipped="0"
+    tests="1" time="57.83" timestamp="Sat, 20 Oct 2018 19:48:45 GMT">
+  
+    <testcase name="searchTest" classname="searchTests" time="57.83" assertions="12">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+      <failure message="Timed out while waiting for element &lt;#result_0 img&gt; to be present for 500 milliseconds.">    at Page.chooseItem (/Users/Parker/DevMtn/Amazon Automation/pages/search.js:3:18)
+    at test.searches.forEach.value (/Users/Parker/DevMtn/Amazon Automation/tests/searchTests.js:44:22)
+    at Array.forEach (&lt;anonymous&gt;)
+    at data.forEach.test (/Users/Parker/DevMtn/Amazon Automation/tests/searchTests.js:36:27)
+    at Array.forEach (&lt;anonymous&gt;)
+    at Object.searchTest (/Users/Parker/DevMtn/Amazon Automation/tests/searchTests.js:26:14)</failure>
+
+    
+    </testcase>
+  
+
+  
+
+  
+  </testsuite>
+</testsuites>

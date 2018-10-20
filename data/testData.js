@@ -20,10 +20,10 @@ module.exports = [
         ]
     },
     {
-        testName: '',
+        testName: 'This shouldn\'t run until the check happens',
         searches: [
             {
-                searchTerm: '',
+                searchTerm: 'NOOOOOOOOOOOOOOOOOO',
                 itemPicked: 1,
                 quantity: 1
             }
