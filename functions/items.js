@@ -3,8 +3,8 @@ module.exports = {
     amounts: [],
     addItem: function (browser, name, amount) //this is the command to add a new item
     {
-        browser.perform(function (done)
-        {
+        // browser.perform(function (done)
+        // {
             let alreadyAdded = false
             for (let i = 0; names.length > i; i++) //this loops through and see if there is a repeated item
             {
@@ -18,12 +18,12 @@ module.exports = {
 
             if (!alreadyAdded)
             {
-                console.log('added a name')
+                console.log('Added a new item')
                 names.push(name)
                 amounts.push(amount)
             }
-            done()
-        })
+        //     done()
+        // })
     },
     clear: function () //this is to clear the values for when a new test starts
     {

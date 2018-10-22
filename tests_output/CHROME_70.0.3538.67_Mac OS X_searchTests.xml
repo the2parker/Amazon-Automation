@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuites errors="1"
-            failures="0"
+<testsuites errors="0"
+            failures="1"
             tests="1">
 
   <testsuite name="searchTests"
-    errors="1" failures="0" hostname="" id="" package="searchTests" skipped="0"
-    tests="1" time="24.14" timestamp="Mon, 22 Oct 2018 19:29:26 GMT">
+    errors="0" failures="1" hostname="" id="" package="searchTests" skipped="0"
+    tests="1" time="138.4" timestamp="Mon, 22 Oct 2018 19:57:00 GMT">
   
-    <testcase name="searchTest" classname="searchTests" time="24.14" assertions="6">
+    <testcase name="searchTest" classname="searchTests" time="138.4" assertions="12">
 
     
 
@@ -18,24 +18,28 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+      <failure message="Timed out while waiting for element &lt;#result_0 img&gt; to be present for 500 milliseconds.">    at Page.chooseItem (/Users/Parker/DevMtn/Amazon Automation/pages/search.js:3:18)
+    at test.searches.forEach.value (/Users/Parker/DevMtn/Amazon Automation/tests/searchTests.js:44:22)
+    at Array.forEach (&lt;anonymous&gt;)
+    at data.forEach.test (/Users/Parker/DevMtn/Amazon Automation/tests/searchTests.js:36:27)
+    at Array.forEach (&lt;anonymous&gt;)
+    at Object.searchTest (/Users/Parker/DevMtn/Amazon Automation/tests/searchTests.js:26:14)</failure>
 
     
     </testcase>
   
 
-  
-    <system-err>
-        Error while running [Search Tests / searchTest]:
-
-  TypeError: Cannot read property &#39;perform&#39; of undefined
-    at Object.addItem (/Users/Parker/DevMtn/Amazon Automation/functions/items.js:6:18)
-    at item.chooseQuantity.amount (/Users/Parker/DevMtn/Amazon Automation/tests/searchTests.js:65:35)
-    at Page.chooseQuantity (/Users/Parker/DevMtn/Amazon Automation/pages/item.js:19:9)
-    at F.&lt;anonymous&gt; (/Users/Parker/DevMtn/Amazon Automation/tests/searchTests.js:63:30)
-    at doneCallback (/usr/local/lib/node_modules/nightwatch/lib/api/client-commands/perform.js:72:16)
-    at _combinedTickCallback (internal/process/next_tick.js:131:7)
-    at process._tickCallback (internal/process/next_tick.js:180:9)
-    </system-err>
   
 
   

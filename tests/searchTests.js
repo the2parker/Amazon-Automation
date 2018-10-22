@@ -3,7 +3,38 @@ var search
 var cart
 var item
 
-var items = require('../functions/items')
+var items = {
+    names: [],
+    amounts: [],
+    addItem: function (browser, name, amount) //this is the command to add a new item
+    {
+        // browser.perform(function (done)
+        // {
+        let alreadyAdded = false
+        for (let i = 0; names.length > i; i++) //this loops through and see if there is a repeated item
+        {
+            if (names[i] == name) // and if there is it adds the amount for the current itemt to that
+            {
+                amounts[i] += amount
+                alreadyAdded = true
+                break
+            }
+        }
+
+        if (!alreadyAdded)
+        {
+            console.log('Added a new item')
+            names.push(name)
+            amounts.push(amount)
+        }
+
+    },
+    clear: function () //this is to clear the values for when a new test starts
+    {
+        names = []
+        amounts = []
+    }
+}
 
 var data = require('../data/testData')
 
@@ -49,26 +80,31 @@ module.exports = {
                     console.log(`Checking on ${value.searchTerm}`)
                     item.isBuyable(function (result)
                     {
-                        console.log(result)
                         bool = result
                         done()
                     })
                 })
+
                 browser.perform(function (done)
                 {
-                    console.log(`Bool is ${bool}`)
-                    let itemName = item.getName()
-                    if (bool)
+                    item.getName(itemName =>
                     {
-                        item.chooseQuantity(value.quantity, amount =>
+                        if (bool)
                         {
-                            items.addItem(browser, itemName, amount)
-                            console.log(items.names)
-                        })
+                            item.chooseQuantity(value.quantity, amount =>
+                            {
+                                console.log('Adding item: ' + itemName)
+                                console.log('Item Quantity: ' + amount)
+                                items.addItem(browser, itemName, amount) //problem function
+                                console.log('Names: ' + items.names)
+                                console.log('Amounts: ' + items.amounts)
+                            })
 
-                        item.addToCart()
+                            item.addToCart()
 
-                    }
+                        }
+                    })
+
                     done()
                 })
             });
