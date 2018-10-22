@@ -5,9 +5,9 @@
 
   <testsuite name="searchTests"
     errors="0" failures="1" hostname="" id="" package="searchTests" skipped="0"
-    tests="1" time="57.83" timestamp="Sat, 20 Oct 2018 19:48:45 GMT">
+    tests="1" time="52.08" timestamp="Sun, 21 Oct 2018 00:35:27 GMT">
   
-    <testcase name="searchTest" classname="searchTests" time="57.83" assertions="12">
+    <testcase name="searchTest" classname="searchTests" time="52.08" assertions="12">
 
     
 

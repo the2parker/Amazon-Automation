@@ -1,8 +1,8 @@
 var commands = {
     checkItems: function (items) //this is the function that should be run
     {
-        this.api.perform(done =>
-        {
+        // this.api.perform(done =>
+        // {
             for (let i = 0; i < items.names.length; i++)
             {
                 this.expect(`div[data-item-count = "${i + 1}"] span[class = "a-size-medium sc-product-title a-text-bold"]`).text.to.equal(itmes.names[i])
@@ -12,8 +12,8 @@ var commands = {
                     this.ok(value == items.amounts[i])
                 })
             }
-            done()
-        })
+            //done()
+        // })
     }
 }
 
