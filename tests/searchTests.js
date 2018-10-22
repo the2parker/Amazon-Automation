@@ -62,7 +62,8 @@ module.exports = {
                     {
                         item.chooseQuantity(value.quantity, amount =>
                         {
-                            items.addItem(itemName, amount)
+                            items.addItem(browser, itemName, amount)
+                            console.log(items.names)
                         })
 
                         item.addToCart()
@@ -76,15 +77,15 @@ module.exports = {
             cart.waitForElementPresent('@firstItem', 5000)
             browser.perform(done =>
             {
-                cart.checkItems(items) //this is what doesn't seem to be running
+                cart.checkItems(items)
                 done()
             })
-            browser.pause(10000)
+            browser.pause(100000)
         });
 
     },
     after: browser =>
     {
-        //browser.end()
+        browser.end()
     }
 }
