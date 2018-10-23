@@ -1,6 +1,6 @@
 var commands = {
     chooseItem: function(itemNumber) {
-        this.api.waitForElementPresent(`#result_${itemNumber - 1} img`, 500)
+        this.api.waitForElementPresent(`#result_${itemNumber - 1} img`, 5000)
         this
             .click(`#result_${itemNumber - 1} img`)
     }

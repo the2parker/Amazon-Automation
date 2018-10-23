@@ -1,33 +1,31 @@
+var names = []
+var amounts = []
+
 module.exports = {
-    names: [],
-    amounts: [],
     addItem: function (browser, name, amount) //this is the command to add a new item
     {
         // browser.perform(function (done)
         // {
-            let alreadyAdded = false
-            for (let i = 0; names.length > i; i++) //this loops through and see if there is a repeated item
+        let alreadyAdded = false
+        for (let i = 0; names.length > i; i++) //this loops through and see if there is a repeated item
+        {
+            if (names[i] == name) // and if there is it adds the amount for the current itemt to that
             {
-                if (names[i] == name) // and if there is it adds the amount for the current itemt to that
-                {
-                    amounts[i] += amount
-                    alreadyAdded = true
-                    break
-                }
+                amounts[i] += amount
+                alreadyAdded = true
+                break
             }
+        }
 
-            if (!alreadyAdded)
-            {
-                console.log('Added a new item')
-                names.push(name)
-                amounts.push(amount)
-            }
-        //     done()
-        // })
+        if (!alreadyAdded)
+        {
+            names.push(name)
+            amounts.push(amount)
+        }
+
     },
-    clear: function () //this is to clear the values for when a new test starts
+    returnInfo: function (callback) 
     {
-        names = []
-        amounts = []
+        callback({ names, amounts })
     }
 }

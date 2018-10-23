@@ -2,21 +2,19 @@ var commands = {
     chooseQuantity: function (amount, callback)
     {
         let addedAmount = amount
-        // this.api.pause(900000)
 
         this.api.elements('css selector', `#quantity option[value = "${addedAmount}"]`, result =>
         {
             if (result.value.length > 0)
             {
                 this.click(`#quantity option[value = "${addedAmount}"]`)
+                callback(addedAmount)
             }
             else
             {
-                addedAmount = 1
+                callback(1)
             }
         })
-
-        callback(addedAmount)
     },
     isBuyable: function (complete)
     {
@@ -33,7 +31,7 @@ var commands = {
                     {
                         if (element.value == "Exclusively for Prime members")
                         {
-                            console.log("Item is not buyable")
+                            console.log("Item is for Prime Members only")
                             bool = false
                             // return false
                         }
@@ -69,20 +67,17 @@ var commands = {
     },
     getName: function (complete)
     {
-        this.api.perform( done => {
-        this.api.elements('css selector', '#productTitle', result =>
+        this.api.perform(done =>
         {
-            this.api.elementIdText(result.value[0].ELEMENT, element =>
+            this.api.elements('css selector', '#productTitle', result =>
             {
-                complete(element.value)
+                this.api.elementIdText(result.value[0].ELEMENT, element =>
+                {
+                    complete(element.value)
+                })
             })
+            done()
         })
-        done()
-    })
-        // this.api.element().getText('@itemName', function (value)
-        // {
-        //     return value
-        // })
     }
 }
 

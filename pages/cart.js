@@ -1,19 +1,39 @@
+var j
+
 var commands = {
     checkItems: function (items)
     {
-        // this.api.perform(done =>
-        // {
+        console.log('Checking Items')
+        this.api.perform(done =>
+        {
+            j = items.names.length
+            let name = ''
+            let amount = ''
+
             for (let i = 0; i < items.names.length; i++)
             {
-                this.expect(`div[data-item-count = "${i + 1}"] span[class = "a-size-medium sc-product-title a-text-bold"]`).text.to.equal(itmes.names.pop())
-
-                this.getAttribute(`div[data-item-count = "${i + 1}"]`, 'data-quantity', value =>
+                this.api.perform(done =>
                 {
-                    this.ok(value == items.amounts.pop())
+                    j--
+
+                    //console.log(items.names)
+                    name = items.names[j]
+                    //console.log(items.amounts)
+                    amount = items.amounts[j]
+
+                    console.log(`Item ${i + 1}: ` + name + ', Quantity: ' + amount)
+
+                    this.verify.containsText(`div[data-item-count = "${i + 1}"] span[class = "a-size-medium sc-product-title a-text-bold"]`, name, 'Name Check')
+
+                    this.getAttribute(`div[data-item-count = "${i + 1}"]`, 'data-quantity', element =>
+                    {
+                        this.verify.ok(element.value == amount, 'Incorrect Amount: Expected ' + amount, 'Correct Amount')
+                    })
+                    done()
                 })
             }
-            // done()
-        // })
+            done()
+        })
     }
 }
 

@@ -3,38 +3,7 @@ var search
 var cart
 var item
 
-var items = {
-    names: [],
-    amounts: [],
-    addItem: function (browser, name, amount) //this is the command to add a new item
-    {
-        // browser.perform(function (done)
-        // {
-        let alreadyAdded = false
-        for (let i = 0; names.length > i; i++) //this loops through and see if there is a repeated item
-        {
-            if (names[i] == name) // and if there is it adds the amount for the current itemt to that
-            {
-                amounts[i] += amount
-                alreadyAdded = true
-                break
-            }
-        }
-
-        if (!alreadyAdded)
-        {
-            console.log('Added a new item')
-            names.push(name)
-            amounts.push(amount)
-        }
-
-    },
-    clear: function () //this is to clear the values for when a new test starts
-    {
-        names = []
-        amounts = []
-    }
-}
+var items = require('../functions/items')
 
 var data = require('../data/testData')
 
@@ -46,12 +15,6 @@ module.exports = {
         item = browser.page.item()
         cart = browser.page.cart()
     },
-    // beforeEach: () =>
-    // {
-    //     home
-    //         .navigate()
-    //         .waitForElementPresent('@logo', 5000)
-    // },
     'searchTest': browser =>
     {
         data.forEach(test =>
@@ -61,8 +24,6 @@ module.exports = {
                 console.log(`Running Test: ${test.testName}`)
                 done()
             })
-
-            items.clear()
 
             test.searches.forEach(value =>
             {
@@ -77,7 +38,7 @@ module.exports = {
                 let bool = false
                 browser.perform(function (done)
                 {
-                    console.log(`Checking on ${value.searchTerm}`)
+                    console.log(`Searching for ${value.searchTerm}`)
                     item.isBuyable(function (result)
                     {
                         bool = result
@@ -95,9 +56,7 @@ module.exports = {
                             {
                                 console.log('Adding item: ' + itemName)
                                 console.log('Item Quantity: ' + amount)
-                                items.addItem(browser, itemName, amount) //problem function
-                                console.log('Names: ' + items.names)
-                                console.log('Amounts: ' + items.amounts)
+                                items.addItem(browser, itemName, amount)
                             })
 
                             item.addToCart()
@@ -113,15 +72,17 @@ module.exports = {
             cart.waitForElementPresent('@firstItem', 5000)
             browser.perform(done =>
             {
-                cart.checkItems(items)
+                items.returnInfo(values =>
+                {
+                    cart.checkItems(values)
+                })
                 done()
             })
-            browser.pause(100000)
         });
 
     },
     after: browser =>
     {
-        browser.end()
+        //browser.end()
     }
 }
